@@ -1,0 +1,57 @@
+packages:
+  openmpi:
+    version: [4.0.0, 3.1.3, 1.10.7]
+    externals:
+    - prefix: /opt/openmpi/4.0.0/gcc-9.3.0
+      spec: openmpi@4.0.0%gcc@9.3.0 arch=linux-centos7-skylake_avx512
+    - prefix: /opt/openmpi/4.0.0/gcc
+      spec: openmpi@4.0.0%gcc@4.8.5 arch=linux-centos7-haswell
+    - prefix: /opt/openmpi/3.1.3/gcc
+      spec: openmpi@3.1.3%gcc@4.8.5 arch=linux-centos7-haswell
+    - prefix: /opt/openmpi/1.10.7/gcc
+      spec: openmpi@1.10.7%gcc@4.8.5 arch=linux-centos7-haswell
+    buildable: False
+  parmetis:
+    externals:
+    - prefix: /home/opt/parmetis/parmetis-3.1.1_gcc-9.3.0_openmpi-4.0.0
+      spec: parmetis@3.1.1%gcc@9.3.0 arch=linux-centos7-skylake_avx512
+    - prefix: /home/opt/lib_openmpi-4.0.0-gcc-4.8.5/parmetis-3.1.1/ParMetis-3.1.1
+      spec: parmetis@3.1.1%gcc@4.8.5 arch=linux-centos7-x86_64
+    - prefix: /home/opt/lib_openmpi-4.0.0-gcc-4.8.5/parmetis-3.1.1/ParMetis-3.1.1
+      spec: parmetis@3.1.1%gcc@4.8.5 arch=linux-centos7-haswell
+  superlu-dist:
+    externals:
+    - prefix: /home/opt/superlu_dist/SuperLU_DIST_2.5_openmpi-4.0.0_gcc-9.3.0
+      spec: superlu-dist@2.5%gcc@9.3.0 arch=linux-centos7-skylake_avx512
+  all:
+    compiler: [gcc@9.3.0, gcc, intel, pgi, clang, xl, nag]
+    providers:
+      D: [ldc]
+      awk: [gawk]
+      blas: [openblas]
+      daal: [intel-daal]
+      elf: [elfutils]
+      fftw-api: [fftw]
+      gl: [mesa, opengl]
+      glu: [mesa-glu, openglu]
+      golang: [gcc]
+      ipp: [intel-ipp]
+      java: [jdk, openjdk, ibm-java]
+      jpeg: [libjpeg-turbo, libjpeg]
+      lapack: [openblas]
+      mariadb-client: [mariadb-c-client, mariadb]
+      mkl: [intel-mkl]
+      mpe: [mpe2]
+      mpi: [openmpi, mpich]
+      mysql-client: [mysql, mariadb-c-client]
+      opencl: [pocl]
+      openfoam: [openfoam-com, openfoam-org, foam-extend]
+      pil: [py-pillow]
+      pkgconfig: [pkgconf, pkg-config]
+      scalapack: [netlib-scalapack]
+      szip: [libszip, libaec]
+      tbb: [intel-tbb]
+      unwind: [libunwind]
+    permissions:
+      read: world
+      write: user
